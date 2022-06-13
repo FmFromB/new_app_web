@@ -1,0 +1,69 @@
+{% extends '@layouts/base.twig' %}
+{% set scope = {
+    slides: [
+        {
+            desktopImage: 'assets/images/slides/slider-1_2.png',
+            mobileImage: 'assets/images/slides/slider-1_2.png',
+            title: 'Проектируем и строим загородные дома',
+            text: 'Любого размера и с любым бюджетом',
+        },
+        {
+            desktopImage: 'assets/images/slides/slider-2_2.png',
+            mobileImage: 'assets/images/slides/slider-2_2.png',
+            title: 'Идивидуальный подход к каждому клиенту',
+            text: 'Воплотим Ваши самые смелые фантазии',
+        },
+        {
+            desktopImage: 'assets/images/slides/slider-3_2.png',
+            mobileImage: 'assets/images/slides/slider-3_2.png',
+            title: 'Оставьте заявку уже сегодня',
+            text: 'Сделайте шаг на встречу мечте',
+        },
+    ],
+    featuredSection: {
+        title: 'Успешно работаем<br> с 1995 года',
+        text: 'Основное направление нашей компании - строительство <br>загородных домов и коттеджей. <br><br> Мы всегда стремимся к взаимопониманию с заказчиком,<br> не уклоняемся от исправления ошибок и стараемся сделать так,<br> чтобы наша работа приносила радость людям.',
+        items: [
+            {
+                icon: 'assets/icons/house.svg',
+                title: '1225 домов',
+                text: 'было нами построено',
+            },
+            {
+                icon: 'assets/icons/key.svg',
+                title: '550',
+                text: 'Уникальных проектов',
+            },
+            {
+                icon: 'assets/icons/human.svg',
+                title: '1000 сотрудников',
+                text: 'готовы вам помочь в любое время суток',
+            },
+            {
+                icon: 'assets/icons/box.svg',
+                title: 'Только',
+                text: 'Качественные европейские метариалы',
+            },
+        ]
+    },
+} %}
+
+
+{% block main %}
+    <div class="Container Main">
+        <div class="Layout__section Layout__section--slider">
+            {% include "@components/slider/slider.twig" with {
+                items: scope.slides,
+                leftArrowSwiper: scope.leftArrowSwiper,
+                rightArrowSwiper: scope.rightArrowSwiper,
+            } %}
+        </div>
+        <div class="Layout__section Layout__section--featured">
+            {% include "@components/featured/section.twig" with {
+                title: scope.featuredSection.title,
+                text: scope.featuredSection.text,
+                items: scope.featuredSection.items,
+            } %}
+        </div>
+    </div>
+{% endblock %} 
